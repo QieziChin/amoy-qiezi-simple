@@ -15,7 +15,6 @@ import java.util.List;
 
 @RefreshScope
 @RestController
-@RequestMapping("qiezi")
 public class HelloController {
 
     @Value("${qiezi.message}")
@@ -24,18 +23,23 @@ public class HelloController {
     @Autowired
     DrawMapper drawMapper;
 
-    @GetMapping("say")
+    @GetMapping("/qiezi/say")
     public Result hello(){
         return Result.success(message);
     }
 
-    @PostMapping("task")
+    @GetMapping("/qiezi/fuck/{name}")
+    public Result fuck(@PathVariable("name") String name){
+        return Result.success(name);
+    }
+
+    @PostMapping("/qiezi/task")
     public void testDrawJob(){
         List<Draw> list = drawMapper.task1();
         CollectUtils.bietnamDraw(drawMapper, list);
     }
 
-    @PostMapping("task1")
+    @PostMapping("/qiezi/task1")
     public String test1(String host, @RequestHeader("Authorization") String token){
         if ("5df686cd531a8bc9c3b339dd82f15874".equals(token)){
             return CollectUtils.routerCall(host);
@@ -44,7 +48,7 @@ public class HelloController {
         }
     }
 
-    @GetMapping("article")
+    @GetMapping("/qiezi/article")
     public String getArticle(String host){
         return CollectUtils.getContent(host);
     }

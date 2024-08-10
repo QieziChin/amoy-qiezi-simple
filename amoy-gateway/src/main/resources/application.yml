@@ -12,6 +12,10 @@ spring:
           uri: http://127.0.0.1:8081/
           predicates:
             - Path=/amoy/**
+        - id: lottery
+          uri: http://127.0.0.1:11100/
+          predicates:
+            - Path=/lottery/**
         - id: qq_route
           uri: https://www.qq.com
           predicates:

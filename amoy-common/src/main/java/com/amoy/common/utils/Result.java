@@ -34,6 +34,10 @@ public class Result<T> implements Serializable {
         this(code, message, (T) null);
     }
 
+//    public Result put(String key, Object data) {
+//
+//    }
+
     public static <T> Result<T> success() {
         return new Result();
     }
