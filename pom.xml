@@ -14,6 +14,7 @@
         <module>amoy-common</module>
         <module>service-common</module>
         <module>service-simple</module>
+        <module>service-admin</module>
         <module>amoy-generator</module>
     </modules>
     <properties>
