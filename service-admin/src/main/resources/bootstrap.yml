@@ -1,0 +1,26 @@
+server:
+  port: 21188
+  servlet:
+    context-path: /cb02fef92bac
+
+spring:
+  application:
+    name: service-admin
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        server-addr: 192.168.56.10:8848
+        namespace: b54f6ed3-b3bc-4033-b803-0b60880e2a64
+        group: QIEZI_GROUP
+        extension-configs:
+          - dataId: amoy-service-admin.yml
+            group: QIEZI_GROUP
+          - dataId: meili.yml
+            group: QIEZI_GROUP
+            refresh: true
+        refresh-enabled: true
+
+#  profiles:
+#    active: meili

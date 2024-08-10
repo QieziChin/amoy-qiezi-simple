@@ -1,0 +1,30 @@
+server:
+  port: 11100
+  servlet:
+    context-path: /lottery
+
+spring:
+  application:
+    name: service-lottery
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        server-addr: 192.168.56.10:8848
+        namespace: b91f81de-b3b0-425a-96cf-32d01ca19266
+#        file-extension: yaml
+        group: QIEZI_GROUP
+        extension-configs:
+          - dataId: lottery.yml
+            group: QIEZI_GROUP
+          - dataId: db.yml
+            group: QIEZI_GROUP
+          - dataId: redis.yml
+            group: QIEZI_GROUP
+          - dataId: alibaba.yml
+            group: QIEZI_GROUP
+          - dataId: mybatis.yml
+            group: QIEZI_GROUP
+            refresh: true
+        refresh-enabled: true

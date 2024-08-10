@@ -12,9 +12,11 @@
 
     <modules>
         <module>amoy-common</module>
+        <module>amoy-gateway</module>
         <module>service-common</module>
         <module>service-simple</module>
         <module>service-admin</module>
+        <module>service-lottery</module>
         <module>amoy-generator</module>
     </modules>
     <properties>
