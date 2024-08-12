@@ -9,7 +9,7 @@
 package io.renren.config;
 
 import io.renren.dao.*;
-import io.renren.utils.RRException;
+import io.renren.utils.QException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -50,7 +50,7 @@ public class DbConfig {
         } else if ("postgresql".equalsIgnoreCase(database)) {
             return postgreSQLGeneratorDao;
         } else {
-            throw new RRException("不支持当前数据库：" + database);
+            throw new QException("不支持当前数据库：" + database);
         }
     }
 

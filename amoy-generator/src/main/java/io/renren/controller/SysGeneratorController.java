@@ -8,10 +8,10 @@
 
 package io.renren.controller;
 
+import com.amoy.common.utils.Result;
 import io.renren.service.SysGeneratorService;
 import io.renren.utils.PageUtils;
 import io.renren.utils.Query;
-import io.renren.utils.R;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +41,10 @@ public class SysGeneratorController {
 	@ResponseBody
 	@CrossOrigin
 	@RequestMapping("/list")
-	public R list(@RequestParam Map<String, Object> params){
+	public Result list(@RequestParam Map<String, Object> params){
 		PageUtils pageUtil = sysGeneratorService.queryList(new Query(params));
 		
-		return R.ok().put("page", pageUtil);
+		return Result.success().put("page", pageUtil);
 	}
 	
 	/**
