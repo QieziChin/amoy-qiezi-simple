@@ -20,6 +20,9 @@ public class HelloController {
     @Value("${qiezi.message}")
     private String message;
 
+    @Value("${server.port}")
+    private String port;
+
     @Autowired
     DrawMapper drawMapper;
 
@@ -52,4 +55,12 @@ public class HelloController {
     public String getArticle(String host){
         return CollectUtils.getContent(host);
     }
+
+
+    @GetMapping(value = "/qiezi/info")
+    public String getInfo(){
+        return "服务提供者：" + port;
+    }
+
+
 }

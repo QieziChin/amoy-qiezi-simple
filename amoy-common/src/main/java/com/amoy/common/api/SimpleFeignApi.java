@@ -14,4 +14,7 @@ public interface SimpleFeignApi {
 
     @GetMapping("/fuck/{name}")
     public Result fuck(@PathVariable("name") String name);
+
+    @GetMapping(value = "/qiezi/info")
+    public String getInfo();
 }

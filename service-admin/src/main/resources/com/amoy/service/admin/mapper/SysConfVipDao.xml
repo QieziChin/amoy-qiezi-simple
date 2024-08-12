@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amoy.service.admin.dao.SysConfVipDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.amoy.service.admin.entity.SysConfVipEntity" id="sysConfVipMap">
+        <result property="id" column="id"/>
+        <result property="level" column="level"/>
+        <result property="name" column="name"/>
+        <result property="image" column="image"/>
+        <result property="income" column="income"/>
+        <result property="taskNum" column="task_num"/>
+        <result property="lockAmount" column="lock_amount"/>
+        <result property="levelValidTime" column="level_valid_time"/>
+        <result property="serviceProportion" column="service_proportion"/>
+        <result property="userIncome" column="user_income"/>
+        <result property="paybackCycle" column="payback_cycle"/>
+        <result property="rechargeRebate" column="recharge_rebate"/>
+        <result property="taskRebate" column="task_rebate"/>
+        <result property="againChargePercent" column="again_charge_percent"/>
+        <result property="isShow" column="is_show"/>
+        <result property="isUnlock" column="is_unlock"/>
+        <result property="withdrawTrxMinMoney" column="withdraw_trx_min_money"/>
+        <result property="withdrawUsdtMinMoney" column="withdraw_usdt_min_money"/>
+        <result property="extractWeek" column="extract_week"/>
+        <result property="sort" column="sort"/>
+        <result property="operater" column="operater"/>
+        <result property="isDel" column="is_del"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>

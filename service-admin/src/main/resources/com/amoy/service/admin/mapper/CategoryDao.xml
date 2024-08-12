@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amoy.service.admin.dao.CategoryDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.amoy.service.admin.entity.CategoryEntity" id="categoryMap">
+        <result property="id" column="id"/>
+        <result property="pid" column="pid"/>
+        <result property="type" column="type"/>
+        <result property="name" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="flag" column="flag"/>
+        <result property="image" column="image"/>
+        <result property="keywords" column="keywords"/>
+        <result property="description" column="description"/>
+        <result property="diyname" column="diyname"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+        <result property="weigh" column="weigh"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+</mapper>

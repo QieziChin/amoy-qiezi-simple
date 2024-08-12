@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amoy.service.admin.dao.UserScoreLogDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.amoy.service.admin.entity.UserScoreLogEntity" id="userScoreLogMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="score" column="score"/>
+        <result property="before" column="before"/>
+        <result property="after" column="after"/>
+        <result property="memo" column="memo"/>
+        <result property="createtime" column="createtime"/>
+    </resultMap>
+
+
+</mapper>

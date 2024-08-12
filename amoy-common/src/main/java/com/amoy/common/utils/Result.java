@@ -2,76 +2,64 @@ package com.amoy.common.utils;
 
 import lombok.Data;
 
-import java.io.Serializable;
+import org.apache.http.HttpStatus;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 统一响应结果
  */
 @Data
-public class Result<T> implements Serializable {
-
-    private static final long serialVersionUID = 6258345321767540526L;
-
-    private final Integer code;//业务状态
-    private final String message;//提示信息
-    private final T data;//响应数据
-
-    public Result(Integer code, String message, T data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
-    }
+public class Result extends HashMap<String, Object> {
+    private static final long serialVersionUID = 1L;
 
     public Result() {
-        this((T) null);
+        put("timestamp", new Date());
+        put("status", 200);
+        put("msg", "success");
     }
 
-    public Result(T data) {
-        this(Info.SUCCESS.getCode(), Info.SUCCESS.getMsg(), data);
+    public static Result error() {
+        return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, "未知异常，请联系管理员");
     }
 
-    public Result(Integer code, String message) {
-        this(code, message, (T) null);
+    public static Result error(String msg) {
+        return error(HttpStatus.SC_INTERNAL_SERVER_ERROR, msg);
     }
 
-//    public Result put(String key, Object data) {
-//
-//    }
+    public static Result error(int code, String msg) {
+        Result r = new Result();
+        r.put("code", code);
+        r.put("msg", msg);
+        return r;
+    }
 
-    public static <T> Result<T> success() {
+    public static Result success(String msg) {
+        Result r = new Result();
+        r.put("msg", msg);
+        return r;
+    }
+
+    public static Result success(Map<String, Object> map) {
+        Result r = new Result();
+        r.putAll(map);
+        return r;
+    }
+
+    public static Result success() {
         return new Result();
     }
 
-    public static <T> Result<T> success(T data) {
-        return new Result(data);
+    public static Result success(Object data) {
+        Result result = new Result();
+        result.put("data", data);
+        return result;
     }
 
-    public static Result<String> failure(String message) {
-        return new Result(Info.SERVER_ERROR.getCode(), message);
+    public Result put(String key, Object value) {
+        super.put(key, value);
+        return this;
     }
-
-    public static <T> Result<T> failure(Info errorCode) {
-        return new Result(errorCode.getCode(), errorCode.getMsg());
-    }
-
-    public static <T> Result<T> failure(Info errorCode, T data) {
-        return new Result(errorCode.getCode(), errorCode.getMsg(), data);
-    }
-
-    public String toString() {
-        return "Result{errorCode=" + this.code + ", message='" + this.message + '\'' + ", data=" + this.data + '}';
-    }
-
-    public Integer getCode() {
-        return this.code;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public T getData() {
-        return this.data;
-    }
-
 }

@@ -20,6 +20,16 @@ buildNumber.properties
 **/.mvn
 
 **/target/
-**/.gitignore
 
+**/install
+**/target8081/
+**/.gitignore
 .idea
+
+/amoy-generator/**
+
+/service-auth/**
+
+/service-admin/src/main/java/com/amoy/service/admin/dao/**
+/service-admin/src/main/java/com/amoy/service/admin/entity/**
+/service-admin/src/main/java/com/amoy/service/admin/service/**

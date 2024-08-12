@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amoy.service.admin.dao.AttachmentDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.amoy.service.admin.entity.AttachmentEntity" id="attachmentMap">
+        <result property="id" column="id"/>
+        <result property="category" column="category"/>
+        <result property="adminId" column="admin_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="url" column="url"/>
+        <result property="imagewidth" column="imagewidth"/>
+        <result property="imageheight" column="imageheight"/>
+        <result property="imagetype" column="imagetype"/>
+        <result property="imageframes" column="imageframes"/>
+        <result property="filename" column="filename"/>
+        <result property="filesize" column="filesize"/>
+        <result property="mimetype" column="mimetype"/>
+        <result property="extparam" column="extparam"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+        <result property="uploadtime" column="uploadtime"/>
+        <result property="storage" column="storage"/>
+        <result property="sha1" column="sha1"/>
+    </resultMap>
+
+
+</mapper>

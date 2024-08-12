@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amoy.service.admin.dao.VersionDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.amoy.service.admin.entity.VersionEntity" id="versionMap">
+        <result property="id" column="id"/>
+        <result property="oldversion" column="oldversion"/>
+        <result property="newversion" column="newversion"/>
+        <result property="packagesize" column="packagesize"/>
+        <result property="content" column="content"/>
+        <result property="downloadurl" column="downloadurl"/>
+        <result property="enforce" column="enforce"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+        <result property="weigh" column="weigh"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+</mapper>

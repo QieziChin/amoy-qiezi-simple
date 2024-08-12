@@ -13,14 +13,15 @@ spring:
       config:
         server-addr: 192.168.56.10:8848
         namespace: b54f6ed3-b3bc-4033-b803-0b60880e2a64
-        group: QIEZI_GROUP
+        group: dev
         extension-configs:
           - dataId: amoy-service-admin.yml
-            group: QIEZI_GROUP
+            group: dev
           - dataId: meili.yml
-            group: QIEZI_GROUP
+            group: dev
             refresh: true
         refresh-enabled: true
 
 #  profiles:
 #    active: meili
+

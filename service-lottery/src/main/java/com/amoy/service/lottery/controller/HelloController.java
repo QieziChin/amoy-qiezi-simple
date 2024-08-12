@@ -23,4 +23,9 @@ public class HelloController {
     public Result fuckMeili(@PathVariable("name") String name){
         return Result.success("fuck " + name);
     }
+
+    @GetMapping(value = "/qiezi/info")
+    public String getInfo(){
+        return simpleFeignApi.getInfo();
+    }
 }
