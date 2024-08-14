@@ -27,7 +27,6 @@ public class JwtUtil {
                 .getClaim("claims")
                 .asMap();
     }
-
     public static long getExpire() {
         return expire;
     }

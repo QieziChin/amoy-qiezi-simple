@@ -21,7 +21,10 @@ spring:
             group: dev
             refresh: true
         refresh-enabled: true
+  web:
+    resources:
+      static-locations: classpath:/
+  mvc:
+    static-path-pattern: /**
 
-#  profiles:
-#    active: meili
 

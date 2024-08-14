@@ -47,7 +47,6 @@ public class AuthRuleController {
     @RequestMapping("/info/{id}")
     public Result info(@PathVariable("id") Integer id){
         AuthRuleEntity authRule = authRuleService.getById(id);
-
         return Result.success().put("authRule", authRule);
     }
 

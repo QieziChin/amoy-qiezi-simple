@@ -48,7 +48,6 @@ public class AdminController {
     @RequestMapping("/info/{id}")
     public Result info(@PathVariable("id") Integer id){
 		AdminEntity admin = adminService.getById(id);
-
         return Result.success().put("admin", admin);
     }
 
@@ -58,7 +57,6 @@ public class AdminController {
     @RequestMapping("/save")
     public Result save(@RequestBody AdminEntity admin){
 		adminService.save(admin);
-
         return Result.success();
     }
 
@@ -68,7 +66,6 @@ public class AdminController {
     @RequestMapping("/update")
     public Result update(@RequestBody AdminEntity admin){
 		adminService.updateById(admin);
-
         return Result.success();
     }
 
@@ -85,9 +82,7 @@ public class AdminController {
     @RequestMapping("/getMenu")
     public Result getMenu(){
         Map<String, Object> map = ThreadLocalUtil.get();
-
         JSONArray data = adminService.getMenu((Integer) map.get("id"));
-
         return Result.success().put("data", data);
     }
 
@@ -101,7 +96,6 @@ public class AdminController {
         if (user == null){
             return Result.error("用户名错误");
         }
-
 
         if (MD5Util.getMD5SaltString(form.getPassword(), user.getSalt()).equals(user.getPassword())){
             Map<String, Object> claims = new HashMap<>();

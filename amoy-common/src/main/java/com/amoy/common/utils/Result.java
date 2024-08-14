@@ -2,6 +2,7 @@ package com.amoy.common.utils;
 
 import lombok.Data;
 
+import lombok.EqualsAndHashCode;
 import org.apache.http.HttpStatus;
 
 import java.util.Date;
@@ -12,10 +13,12 @@ import java.util.Map;
  * 统一响应结果
  */
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class Result extends HashMap<String, Object> {
     private static final long serialVersionUID = 1L;
 
     public Result() {
+        super();
         put("timestamp", new Date());
         put("status", 200);
         put("msg", "success");

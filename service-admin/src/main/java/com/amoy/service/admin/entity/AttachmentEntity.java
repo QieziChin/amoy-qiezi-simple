@@ -1,5 +1,7 @@
 package com.amoy.service.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -12,7 +14,7 @@ import lombok.Data;
  * 
  * @author qiezi
  * @email qiezi.chin@gmail.com
- * @date 2024-08-10 23:59:16
+ * @date 2024-08-12 21:28:17
  */
 @Data
 @TableName("fa_attachment")
@@ -75,14 +77,17 @@ public class AttachmentEntity implements Serializable {
 	/**
 	 * 创建日期
 	 */
+	@TableField(value = "createtime", fill = FieldFill.INSERT)
 	private Long createtime;
 	/**
 	 * 更新时间
 	 */
+	@TableField(value = "updatetime", fill = FieldFill.UPDATE)
 	private Long updatetime;
 	/**
 	 * 上传时间
 	 */
+	@TableField(value = "uploadtime", fill = FieldFill.INSERT)
 	private Long uploadtime;
 	/**
 	 * 存储位置
@@ -92,5 +97,4 @@ public class AttachmentEntity implements Serializable {
 	 * 文件 sha1编码
 	 */
 	private String sha1;
-
 }

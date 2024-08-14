@@ -2,6 +2,8 @@ package com.amoy.service.admin.entity;
 
 import com.amoy.service.admin.emums.AuthType;
 import com.amoy.service.admin.emums.MenuType;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -81,10 +83,12 @@ public class AuthRuleEntity implements Serializable {
 	/**
 	 * 创建时间
 	 */
+	@TableField(value = "create_time", fill = FieldFill.INSERT)
 	private Long createtime;
 	/**
 	 * 更新时间
 	 */
+	@TableField(value = "update_time", fill = FieldFill.UPDATE)
 	private Long updatetime;
 	/**
 	 * 权重

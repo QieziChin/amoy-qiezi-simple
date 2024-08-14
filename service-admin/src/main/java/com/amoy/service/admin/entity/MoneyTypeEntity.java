@@ -1,8 +1,11 @@
 package com.amoy.service.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.math.BigDecimal;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -12,7 +15,7 @@ import lombok.Data;
  * 
  * @author qiezi
  * @email qiezi.chin@gmail.com
- * @date 2024-08-10 23:59:16
+ * @date 2024-08-14 12:07:59
  */
 @Data
 @TableName("fa_money_type")
@@ -31,7 +34,7 @@ public class MoneyTypeEntity implements Serializable {
 	/**
 	 * 类型
 	 */
-	private Enum type;
+	private String type;
 	/**
 	 * 商户号
 	 */
@@ -51,11 +54,11 @@ public class MoneyTypeEntity implements Serializable {
 	/**
 	 * 最小提现金额
 	 */
-	private String minExtractMoney;
+	private BigDecimal minExtractMoney;
 	/**
 	 * 最大提现金额
 	 */
-	private String maxExtractMoney;
+	private BigDecimal maxExtractMoney;
 	/**
 	 * 充值是否开启
 	 */
@@ -67,7 +70,7 @@ public class MoneyTypeEntity implements Serializable {
 	/**
 	 * 汇率
 	 */
-	private String exchangeRate;
+	private BigDecimal exchangeRate;
 	/**
 	 * 汇率更新时间
 	 */
@@ -79,10 +82,23 @@ public class MoneyTypeEntity implements Serializable {
 	/**
 	 * 是否启用:0=启用;1=禁用
 	 */
-	private Enum status;
+	private String status;
+	/**
+	 * 充值描述
+	 */
+	private String remark;
+	/**
+	 * 操作员
+	 */
+	private Integer operater;
 	/**
 	 * 创建时间
 	 */
+	@TableField(value = "createtime", fill = FieldFill.INSERT)
 	private Long createtime;
-
+	/**
+	 * 修改时间
+	 */
+	@TableField(value = "updatetime", fill = FieldFill.UPDATE)
+	private Long updatetime;
 }

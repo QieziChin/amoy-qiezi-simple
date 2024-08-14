@@ -1,5 +1,7 @@
 package com.amoy.service.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -12,7 +14,7 @@ import lombok.Data;
  * 
  * @author qiezi
  * @email qiezi.chin@gmail.com
- * @date 2024-08-10 23:59:16
+ * @date 2024-08-12 21:28:17
  */
 @Data
 @TableName("fa_config")
@@ -68,5 +70,4 @@ public class ConfigEntity implements Serializable {
 	 * 配置
 	 */
 	private String setting;
-
 }

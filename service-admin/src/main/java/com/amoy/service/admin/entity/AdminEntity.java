@@ -1,5 +1,7 @@
 package com.amoy.service.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -12,7 +14,7 @@ import lombok.Data;
  * 
  * @author qiezi
  * @email qiezi.chin@gmail.com
- * @date 2024-08-10 23:59:16
+ * @date 2024-08-12 21:28:16
  */
 @Data
 @TableName("fa_admin")
@@ -67,10 +69,12 @@ public class AdminEntity implements Serializable {
 	/**
 	 * 创建时间
 	 */
+	@TableField(value = "createtime", fill = FieldFill.INSERT)
 	private Long createtime;
 	/**
 	 * 更新时间
 	 */
+	@TableField(value = "updatetime", fill = FieldFill.UPDATE)
 	private Long updatetime;
 	/**
 	 * Session标识
@@ -80,5 +84,4 @@ public class AdminEntity implements Serializable {
 	 * 状态
 	 */
 	private String status;
-
 }

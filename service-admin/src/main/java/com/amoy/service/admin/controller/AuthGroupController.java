@@ -1,6 +1,7 @@
 package com.amoy.service.admin.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,6 @@ public class AuthGroupController {
     @RequestMapping("/save")
     public Result save(@RequestBody AuthGroupEntity authGroup){
 		authGroupService.save(authGroup);
-
         return Result.success();
     }
 
@@ -62,7 +62,6 @@ public class AuthGroupController {
     @RequestMapping("/update")
     public Result update(@RequestBody AuthGroupEntity authGroup){
 		authGroupService.updateById(authGroup);
-
         return Result.success();
     }
 
@@ -70,9 +69,9 @@ public class AuthGroupController {
      * 删除
      */
     @RequestMapping("/delete")
+//    @DeleteMapping("/delete")
     public Result delete(@RequestBody Integer[] ids){
 		authGroupService.removeByIds(Arrays.asList(ids));
-
         return Result.success();
     }
 

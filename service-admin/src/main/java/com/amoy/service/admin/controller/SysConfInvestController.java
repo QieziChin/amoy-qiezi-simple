@@ -25,7 +25,7 @@ import com.amoy.common.utils.Result;
  * @date 2024-08-10 23:59:16
  */
 @RestController
-@RequestMapping("admin/sysconfinvest")
+@RequestMapping("admin/invest")
 public class SysConfInvestController {
     @Autowired
     private SysConfInvestService sysConfInvestService;

@@ -4,10 +4,12 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: adminTest
+        - id: adminStatic
           uri: http://127.0.0.1:21188/
           predicates:
-            - Path=/cb02fef92bac/**
+            - Path=/upload/**
+          filters:
+            - RewritePath=/(?<segment>.*), /cb02fef92bac/$\{segment}
         - id: simpleTest
           uri: http://127.0.0.1:8081/
           predicates:

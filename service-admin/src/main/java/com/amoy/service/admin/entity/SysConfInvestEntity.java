@@ -1,5 +1,7 @@
 package com.amoy.service.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -13,7 +15,7 @@ import lombok.Data;
  * 
  * @author qiezi
  * @email qiezi.chin@gmail.com
- * @date 2024-08-10 23:59:16
+ * @date 2024-08-13 14:40:20
  */
 @Data
 @TableName("fa_sys_conf_invest")
@@ -28,7 +30,7 @@ public class SysConfInvestEntity implements Serializable {
 	/**
 	 * 产品类型:1=普通投资,2=提现投资
 	 */
-	private Enum productType;
+	private String productType;
 	/**
 	 * 产品图片
 	 */
@@ -52,7 +54,7 @@ public class SysConfInvestEntity implements Serializable {
 	/**
 	 * 收益类型:1=按日返息 到期不还本,2=按日返息 到期还本,3=到期本息
 	 */
-	private Enum profitType;
+	private String profitType;
 	/**
 	 * 限购数量
 	 */
@@ -64,11 +66,11 @@ public class SysConfInvestEntity implements Serializable {
 	/**
 	 * 销售状态:1=在售,0=停售
 	 */
-	private Enum salesStatus;
+	private String salesStatus;
 	/**
 	 * 状态:1=开启,0=关闭
 	 */
-	private Enum status;
+	private String status;
 	/**
 	 * 排序
 	 */
@@ -76,7 +78,7 @@ public class SysConfInvestEntity implements Serializable {
 	/**
 	 * 是否删除
 	 */
-	private Enum isDel;
+	private String isDel;
 	/**
 	 * 说明内容
 	 */
@@ -89,5 +91,4 @@ public class SysConfInvestEntity implements Serializable {
 	 * 修改时间
 	 */
 	private Long updateTime;
-
 }

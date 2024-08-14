@@ -25,7 +25,7 @@ import com.amoy.common.utils.Result;
  * @date 2024-08-10 23:59:16
  */
 @RestController
-@RequestMapping("admin/user")
+@RequestMapping("admin/member")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -36,7 +36,6 @@ public class UserController {
     @RequestMapping("/list")
     public Result list(@RequestParam Map<String, Object> params){
         PageUtil page = userService.queryPage(params);
-
         return Result.success().put("page", page);
     }
 

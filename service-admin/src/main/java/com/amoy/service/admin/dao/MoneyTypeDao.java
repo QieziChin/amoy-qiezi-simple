@@ -3,6 +3,7 @@ package com.amoy.service.admin.dao;
 import com.amoy.service.admin.entity.MoneyTypeEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * 
@@ -13,5 +14,9 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface MoneyTypeDao extends BaseMapper<MoneyTypeEntity> {
-	
+
+
+
+    @Update("update fa_money_type set recharge_is_show=#{rechargeIsShow}, extract_is_show=#{extractIsShow}, status=#{status} where id=#{id}")
+    void updateStatus(MoneyTypeEntity moneyType);
 }

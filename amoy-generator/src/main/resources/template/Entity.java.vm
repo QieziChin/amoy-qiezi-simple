@@ -1,5 +1,7 @@
 package ${package}.${moduleName}.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -28,8 +30,11 @@ public class ${className}Entity implements Serializable {
 	 */
 	#if($column.columnName == $pk.columnName)
 @TableId
+	#elseif($column.columnName == "createtime")
+@TableField(value = "createtime", fill = FieldFill.INSERT)
+	#elseif($column.columnName == "updatetime")
+@TableField(value = "updatetime", fill = FieldFill.UPDATE)
 	#end
 private $column.attrType $column.attrname;
 #end
-
 }

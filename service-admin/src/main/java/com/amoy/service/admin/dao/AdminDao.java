@@ -15,7 +15,4 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface AdminDao extends BaseMapper<AdminEntity> {
 
-
-//    @Select("select * from fa_admin where username=#{username}")
-//    AdminEntity findByUserName(String username);
 }

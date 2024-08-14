@@ -3,12 +3,10 @@ package com.amoy.service.admin.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.alibaba.fastjson2.JSONArray;
+import com.amoy.common.utils.ThreadLocalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.amoy.service.admin.entity.MoneyTypeEntity;
 import com.amoy.service.admin.service.MoneyTypeService;
@@ -25,7 +23,7 @@ import com.amoy.common.utils.Result;
  * @date 2024-08-10 23:59:16
  */
 @RestController
-@RequestMapping("admin/moneytype")
+@RequestMapping("admin/money")
 public class MoneyTypeController {
     @Autowired
     private MoneyTypeService moneyTypeService;
@@ -39,8 +37,6 @@ public class MoneyTypeController {
 
         return Result.success().put("page", page);
     }
-
-
     /**
      * 信息
      */
@@ -50,14 +46,15 @@ public class MoneyTypeController {
 
         return Result.success().put("moneyType", moneyType);
     }
-
     /**
      * 保存
      */
     @RequestMapping("/save")
     public Result save(@RequestBody MoneyTypeEntity moneyType){
+        Map<String, Object> map = ThreadLocalUtil.get();
+        moneyType.setOperater((Integer) map.get("id"));
+        moneyType.setStatus("0");
 		moneyTypeService.save(moneyType);
-
         return Result.success();
     }
 
@@ -66,8 +63,9 @@ public class MoneyTypeController {
      */
     @RequestMapping("/update")
     public Result update(@RequestBody MoneyTypeEntity moneyType){
+        Map<String, Object> map = ThreadLocalUtil.get();
+        moneyType.setOperater((Integer) map.get("id"));
 		moneyTypeService.updateById(moneyType);
-
         return Result.success();
     }
 
@@ -81,4 +79,9 @@ public class MoneyTypeController {
         return Result.success();
     }
 
+    @PostMapping ("/state")
+    public Result state(@RequestBody MoneyTypeEntity moneyType){
+        moneyTypeService.updateState(moneyType);
+        return Result.success();
+    }
 }

@@ -1,5 +1,6 @@
 package com.amoy.service.admin.service;
 
+import com.amoy.common.utils.Result;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.amoy.common.utils.PageUtil;
 import com.amoy.service.admin.entity.MoneyTypeEntity;
@@ -16,5 +17,7 @@ import java.util.Map;
 public interface MoneyTypeService extends IService<MoneyTypeEntity> {
 
     PageUtil queryPage(Map<String, Object> params);
+
+    Result updateState(MoneyTypeEntity entity);
 }
 

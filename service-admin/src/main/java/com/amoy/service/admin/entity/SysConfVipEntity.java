@@ -1,5 +1,7 @@
 package com.amoy.service.admin.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -13,7 +15,7 @@ import lombok.Data;
  * 
  * @author qiezi
  * @email qiezi.chin@gmail.com
- * @date 2024-08-10 23:59:16
+ * @date 2024-08-13 12:21:35
  */
 @Data
 @TableName("fa_sys_conf_vip")
@@ -28,7 +30,7 @@ public class SysConfVipEntity implements Serializable {
 	/**
 	 * 会员等级
 	 */
-	private Enum level;
+	private String level;
 	/**
 	 * 会员名称
 	 */
@@ -80,11 +82,11 @@ public class SysConfVipEntity implements Serializable {
 	/**
 	 * 显示:1=显示,0=关闭
 	 */
-	private Enum isShow;
+	private String isShow;
 	/**
 	 * 是否可解锁:1=开启,0=锁定
 	 */
-	private Enum isUnlock;
+	private String isUnlock;
 	/**
 	 * 最小trx提现金额
 	 */
@@ -108,7 +110,7 @@ public class SysConfVipEntity implements Serializable {
 	/**
 	 * 删除标识
 	 */
-	private Enum isDel;
+	private String isDel;
 	/**
 	 * 添加时间
 	 */
@@ -117,5 +119,4 @@ public class SysConfVipEntity implements Serializable {
 	 * 修改时间
 	 */
 	private Long updateTime;
-
 }

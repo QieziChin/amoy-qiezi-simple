@@ -13,7 +13,6 @@ public class MD5Util {
         try {
             messagedigest = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
-            System.err.println(MD5Util.class.getName() + "初始化失败，MessageDigest不支持Md5Util。");
             e.printStackTrace();
         }
     }
@@ -34,16 +33,11 @@ public class MD5Util {
     }
 
     public static String getMD5String(byte[] s){
-
         messagedigest.update(s);
-
         byte[] md5 = messagedigest.digest();
-
         int j = md5.length;
-
         char[] str = new char[j * 2];
         int k = 0;
-
         for (byte byte0 : md5) {
             str[k++] = hexDigits[byte0 >>> 4 & 0xf];
             str[k++] = hexDigits[byte0 & 0xf];
