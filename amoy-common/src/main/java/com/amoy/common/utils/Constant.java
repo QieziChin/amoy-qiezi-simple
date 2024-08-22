@@ -21,6 +21,12 @@ import java.util.stream.Stream;
  * @author Mark sunlightcs@gmail.com
  */
 public class Constant {
+    public static final String TOKEN_USER = "UserToken";
+
+
+
+    public static final String agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36";
+
     /**
      * 超级管理员ID
      */
@@ -28,15 +34,15 @@ public class Constant {
     /**
      * 当前页码
      */
-    public static final String PAGE = "page";
+    public static final String PAGE = "currPage";
     /**
      * 每页显示记录数
      */
-    public static final String LIMIT = "limit";
+    public static final String LIMIT = "pageSize";
     /**
      * 排序字段
      */
-    public static final String ORDER_FIELD = "sidx";
+    public static final String ORDER_FIELD = "sort";
     /**
      * 排序方式
      */

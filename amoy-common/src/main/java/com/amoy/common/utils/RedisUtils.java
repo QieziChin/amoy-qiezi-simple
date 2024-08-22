@@ -1,11 +1,3 @@
-/**
- * Copyright (c) 2018 人人开源 All rights reserved.
- * <p>
- * https://www.renren.io
- * <p>
- * 版权所有，侵权必究！
- */
-
 package com.amoy.common.utils;
 
 import jakarta.annotation.Resource;
@@ -20,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * Redis工具类
  *
- * @author Mark sunlightcs@gmail.com
  */
 @Component
 public class RedisUtils {
@@ -36,39 +27,81 @@ public class RedisUtils {
     /**  不设置过期时长 */
     public final static long NOT_EXPIRE = -1L;
 
-    public void set(String key, Object value, long expire) {
-        redisTemplate.opsForValue().set(key, value);
-        if (expire != NOT_EXPIRE) {
-            expire(key, expire);
-        }
-    }
 
+    //String类型
+    //redisTemplate.opsForValue();
     public void set(String key, Object value) {
-        set(key, value, DEFAULT_EXPIRE);
+        redisTemplate.opsForValue().set(key, value);
+    }
+    public void set(String key, Object value, long timeout) {
+        redisTemplate.opsForValue().set(key, value, timeout, TimeUnit.SECONDS);
     }
 
-    public Object get(String key, long expire) {
-        Object value = redisTemplate.opsForValue().get(key);
-        if (expire != NOT_EXPIRE) {
-            expire(key, expire);
-        }
-        return value;
+    public void set(String key, String value, long timeout, TimeUnit unit){
+        redisTemplate.opsForValue().set(key, value, timeout, unit);
     }
 
-    public Object get(String key) {
-        return get(key, NOT_EXPIRE);
+    public String get(String key) {
+        return (String)redisTemplate.opsForValue().get(key);
     }
 
     public void delete(String key) {
         redisTemplate.delete(key);
     }
+    //Hash类型
+    // redisTemplate.opsForHash();
+    public void hSet(String key, String hashKey, Object value){
+        redisTemplate.opsForHash().put(key, hashKey, value);
+    }
+
+    /**
+     * Redis 模拟Hash field 过期
+     * 适用于用户登录
+     * 单独维护一个摘要的key 过期时间，然后每隔1小时去删除对应field字段
+     * supper key 需要手动添加
+     */
+    public void hSet(String key, String hashKey, Object value, long timeout){
+        String ttlKey = Digest.MD5.getHash(key + hashKey);
+        redisTemplate.opsForHash().put(key, hashKey, value);
+        expire(ttlKey, timeout);
+    }
+
+    public void hSet(String key, String hashKey, Object value, long timeout, TimeUnit unit){
+        String ttlKey = Digest.MD5.getHash(key + hashKey);
+        redisTemplate.opsForHash().put(key, hashKey, value);
+        set(ttlKey, null);
+        expire(ttlKey, timeout, unit);
+    }
+
+    public Object hGet(String key, String hashKey){
+        return redisTemplate.opsForHash().get(key, hashKey);
+    }
+
+    public Object delete(String key, String hashKey){
+        return redisTemplate.opsForHash().delete(key, hashKey);
+    }
+ //List类型
+// redisTemplate.opsForList();
+
+//Set类型
+// redisTemplate.opsForSet();
+
+//ZSet类型
+// redisTemplate.opsForZSet();
+    public void expire(String key) {
+        redisTemplate.expire(key, 24, TimeUnit.HOURS);
+    }
+
+    public void expire(String key, long timeout, TimeUnit unit) {
+        redisTemplate.expire(key, timeout, unit);
+    }
+
+    public void expire(String key, long timeout) {
+        redisTemplate.expire(key, timeout, TimeUnit.SECONDS);
+    }
 
     public void delete(Collection<String> keys) {
         redisTemplate.delete(keys);
-    }
-
-    public Object hGet(String key, String field) {
-        return redisTemplate.opsForHash().get(key, field);
     }
 
     public Map<String, Object> hGetAll(String key) {
@@ -86,22 +119,6 @@ public class RedisUtils {
         if (expire != NOT_EXPIRE) {
             expire(key, expire);
         }
-    }
-
-    public void hSet(String key, String field, Object value) {
-        hSet(key, field, value, DEFAULT_EXPIRE);
-    }
-
-    public void hSet(String key, String field, Object value, long expire) {
-        redisTemplate.opsForHash().put(key, field, value);
-
-        if (expire != NOT_EXPIRE) {
-            expire(key, expire);
-        }
-    }
-
-    public void expire(String key, long expire) {
-        redisTemplate.expire(key, expire, TimeUnit.SECONDS);
     }
 
     public void hDel(String key, Object... fields) {

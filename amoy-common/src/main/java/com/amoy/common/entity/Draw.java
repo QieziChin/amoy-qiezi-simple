@@ -14,6 +14,6 @@ public class Draw {
     private String style;
     private String url;
     private String content;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat
     private LocalDateTime updateTime;//更新时间
 }

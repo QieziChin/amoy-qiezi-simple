@@ -12,16 +12,13 @@ import java.util.Map;
 /**
  * 统一响应结果
  */
-@Data
 @EqualsAndHashCode(callSuper=false)
+@Data
 public class Result extends HashMap<String, Object> {
     private static final long serialVersionUID = 1L;
 
     public Result() {
-        super();
         put("timestamp", new Date());
-        put("status", 200);
-        put("msg", "success");
     }
 
     public static Result error() {
@@ -52,7 +49,7 @@ public class Result extends HashMap<String, Object> {
     }
 
     public static Result success() {
-        return new Result();
+        return new Result().put("status", 200);
     }
 
     public static Result success(Object data) {

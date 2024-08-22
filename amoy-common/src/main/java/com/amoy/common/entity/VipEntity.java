@@ -1,14 +1,11 @@
-package com.amoy.service.admin.entity;
+package com.amoy.common.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.math.BigDecimal;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * VIP 配置
@@ -19,7 +16,7 @@ import lombok.Data;
  */
 @Data
 @TableName("fa_sys_conf_vip")
-public class SysConfVipEntity implements Serializable {
+public class VipEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**

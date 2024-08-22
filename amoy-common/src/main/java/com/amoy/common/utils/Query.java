@@ -46,7 +46,7 @@ public class Query<T> {
         params.put(Constant.PAGE, page);
 
         //排序字段
-        //防止SQL注入（因为sidx、order是通过拼接SQL实现排序的，会有SQL注入风险）
+        //防止SQL注入
         String orderField = SQLFilter.sqlInject((String)params.get(Constant.ORDER_FIELD));
         String order = (String)params.get(Constant.ORDER);
 
