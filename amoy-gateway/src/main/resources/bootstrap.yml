@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: amoy-gateway
+  main:
+    web-application-type: reactive
+  cloud:
+    nacos:
+      password: nacos
+      username: nacos
+      config:
+        server-addr: 192.168.56.10:8848
+        namespace: 2bd159c9-7236-440f-9dcb-7f959d2e88c9
+        group: QIEZI_GROUP
+        extension-configs:
+          - dataId: gateway.yml
+            group: QIEZI_GROUP
+          - dataId: routes.yml
+            group: QIEZI_GROUP
+server:
+  port: 8082

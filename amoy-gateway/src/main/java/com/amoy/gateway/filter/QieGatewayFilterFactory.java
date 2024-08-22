@@ -19,8 +19,6 @@ import java.util.List;
 @Component
 public class QieGatewayFilterFactory extends AbstractGatewayFilterFactory<QieGatewayFilterFactory.Config> {
 
-
-
     public static class Config{
         private String template;
         public String getTemplate(){return template;}
