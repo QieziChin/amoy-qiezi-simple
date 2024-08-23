@@ -1,0 +1,25 @@
+server:
+  port: 50100
+
+spring:
+  application:
+    name: service-cloudflare
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      config:
+        server-addr: 192.168.56.10:8848
+        namespace: b013b186-31be-4b2f-aa8a-b20ca9932b64
+        group: QIEZI_GROUP
+        extension-configs:
+          - dataId: cloudflare.yml
+            group: QIEZI_GROUP
+            refresh: true
+          - dataId: db.yml
+            group: QIEZI_GROUP
+          - dataId: mybatis.yml
+            group: QIEZI_GROUP
+          - dataId: alibaba.yml
+            group: QIEZI_GROUP
+        refresh-enabled: true
