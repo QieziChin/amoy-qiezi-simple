@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amoy.qiezi.dao.VideoTranslationsDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.amoy.qiezi.entity.VideoTranslationsEntity" id="videoTranslationsMap">
+        <result property="videoId" column="video_id"/>
+        <result property="langId" column="lang_id"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <result property="metaTitle" column="meta_title"/>
+        <result property="metaDesc" column="meta_desc"/>
+        <result property="metaKeys" column="meta_keys"/>
+        <result property="custom1" column="custom1"/>
+        <result property="custom2" column="custom2"/>
+        <result property="custom3" column="custom3"/>
+    </resultMap>
+
+
+</mapper>

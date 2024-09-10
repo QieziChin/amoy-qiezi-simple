@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: service-api
+  cloud:
+    nacos:
+      username: video
+      password: video
+      config:
+#        server-addr: 172.10.56.10:8848
+        server-addr: 192.168.56.10:8848
+        namespace: 06ad4630-a767-4a38-a7a8-22fa35df9ca6
+        group: QIEZI_GROUP
+        extension-configs:
+          - dataId: qiezi.yml
+            group: QIEZI_GROUP
+            refresh: true
+          - dataId: db.yml
+            group: QIEZI_GROUP
+          - dataId: mybatis.yml
+            group: QIEZI_GROUP
+          - dataId: redis.yml
+            group: QIEZI_GROUP
+          - dataId: logging.yml
+            group: QIEZI_GROUP
+        refresh-enabled: true
+
+mybatis:
+  configuration:
+
+
+logging:
+  pattern:
+    dateformat: "HH:mm:ss.SSS"
+    level: "%clr([%5p])"
+    console: "%clr(%d{HH:mm:ss.SSS}){cyan} %clr([%5p]) [%50logger{36}][%4L] : %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%5p] [%thread] [%logger{50}] : %msg%n"

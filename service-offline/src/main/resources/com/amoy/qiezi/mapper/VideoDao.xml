@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.amoy.qiezi.dao.VideoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.amoy.qiezi.entity.VideoEntity" id="videoMap">
+        <result property="videoId" column="video_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="serverId" column="server_id"/>
+        <result property="channelId" column="channel_id"/>
+        <result property="dvdId" column="dvd_id"/>
+        <result property="orientation" column="orientation"/>
+        <result property="title" column="title"/>
+        <result property="slug" column="slug"/>
+        <result property="description" column="description"/>
+        <result property="rating" column="rating"/>
+        <result property="likes" column="likes"/>
+        <result property="ratedBy" column="rated_by"/>
+        <result property="percent" column="percent"/>
+        <result property="percentToday" column="percent_today"/>
+        <result property="percentWeek" column="percent_week"/>
+        <result property="percentMonth" column="percent_month"/>
+        <result property="percentYear" column="percent_year"/>
+        <result property="duration" column="duration"/>
+        <result property="thumb" column="thumb"/>
+        <result property="thumbs" column="thumbs"/>
+        <result property="thumbTime" column="thumb_time"/>
+        <result property="thumbUrl" column="thumb_url"/>
+        <result property="embedCode" column="embed_code"/>
+        <result property="allowEmbed" column="allow_embed"/>
+        <result property="allowRating" column="allow_rating"/>
+        <result property="allowComment" column="allow_comment"/>
+        <result property="allowDownload" column="allow_download"/>
+        <result property="totalViews" column="total_views"/>
+        <result property="todayViews" column="today_views"/>
+        <result property="weekViews" column="week_views"/>
+        <result property="monthViews" column="month_views"/>
+        <result property="yearViews" column="year_views"/>
+        <result property="totalComments" column="total_comments"/>
+        <result property="totalDownloads" column="total_downloads"/>
+        <result property="totalFavorites" column="total_favorites"/>
+        <result property="totalEmbeds" column="total_embeds"/>
+        <result property="totalFiles" column="total_files"/>
+        <result property="ctr" column="ctr"/>
+        <result property="ctrToday" column="ctr_today"/>
+        <result property="files" column="files"/>
+        <result property="trailer" column="trailer"/>
+        <result property="type" column="type"/>
+        <result property="hd" column="hd"/>
+        <result property="mobile" column="mobile"/>
+        <result property="hotlinked" column="hotlinked"/>
+        <result property="hls" column="hls"/>
+        <result property="simple" column="simple"/>
+        <result property="premium" column="premium"/>
+        <result property="price" column="price"/>
+        <result property="s3" column="s3"/>
+        <result property="metaTitle" column="meta_title"/>
+        <result property="metaDesc" column="meta_desc"/>
+        <result property="metaKeys" column="meta_keys"/>
+        <result property="custom1" column="custom1"/>
+        <result property="custom2" column="custom2"/>
+        <result property="custom3" column="custom3"/>
+        <result property="addTime" column="add_time"/>
+        <result property="viewTime" column="view_time"/>
+        <result property="convTime" column="conv_time"/>
+        <result property="editTime" column="edit_time"/>
+        <result property="editUserId" column="edit_user_id"/>
+        <result property="featured" column="featured"/>
+        <result property="featuredTime" column="featured_time"/>
+        <result property="flagged" column="flagged"/>
+        <result property="flagTime" column="flag_time"/>
+        <result property="errno" column="errno"/>
+        <result property="locked" column="locked"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+
+</mapper>

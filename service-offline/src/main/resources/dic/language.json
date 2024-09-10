@@ -1,0 +1,64 @@
+[
+  {
+    "drive": "deepl",
+    "language": "zh-CN",
+    "target": "ZH-HANS",
+    "code": 2
+  },
+  {
+    "drive": "deepl",
+    "language": "zh-TW",
+    "target": "ZH-HANT",
+    "code": 3
+  },
+  {
+    "drive": "deepl",
+    "language": "pt-BR",
+    "target": "PT-BR",
+    "code": 5
+  },
+  {
+    "drive": "deepl",
+    "language": "ko-KR",
+    "target": "KO",
+    "code": 7
+  }
+  ,
+  {
+    "drive": "cloudflare",
+    "language": "zh-CN",
+    "target": "zh",
+    "code": 2
+  },
+  {
+    "drive": "cloudflare",
+    "language": "zh-TW",
+    "target": "zh-TW",
+    "code": 3
+  },
+  {
+    "drive": "cloudflare",
+    "language": "vi-VH",
+    "target": "vi",
+    "code": 4
+  },
+  {
+    "drive": "cloudflare",
+    "language": "pt-BR",
+    "target": "pt",
+    "code": 5
+  },
+  {
+    "drive": "cloudflare",
+    "language": "hi-IN",
+    "target": "hi",
+    "code": 6
+  },
+  {
+    "drive": "cloudflare",
+    "language": "ko-KR",
+    "target": "ko",
+    "code": 7
+  }
+]
+
