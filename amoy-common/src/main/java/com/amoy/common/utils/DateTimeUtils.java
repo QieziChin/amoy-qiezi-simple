@@ -17,6 +17,25 @@ public class DateTimeUtils {
         return result;
     }
 
+    public static long timestamp(){
+        LocalDateTime truncated = LocalDateTime.now();
+        return truncated.toEpochSecond(ZoneOffset.UTC);
+    }
+
+    public static float getSecond(String time){
+        String[] times = time.trim().split(":");
+        float hour = 0L, min = 0L, sec =0L;
+        if (times.length > 2){
+            hour = Long.parseLong(times[0]) * 60 * 60;
+            min = Long.parseLong(times[1]) * 60;
+        } else if ( times.length > 1){
+            min = Long.parseLong(times[0]) * 60;
+        } else {
+            sec = Long.parseLong(times[0]);
+        }
+        return hour + min + sec;
+    }
+
     public static String getPast(String time){
         Locale brazil = new Locale("pt", "BR");
 

@@ -1,7 +1,5 @@
 package com.amoy.common.utils;
 
-import org.springframework.stereotype.Component;
-
 /**
  * String 工具类
  * @Auth 茄子🍆
@@ -24,5 +22,22 @@ public class StringUtils {
             String str = obj.toString();
             return str.length() == 0;
         }
+    }
+
+    public static String replace(String[] holder, String target,  String source){
+        for (String meili: holder){
+            source = source.replaceAll(meili, target);
+        }
+        return source;
+    }
+
+    public static boolean isHttp(String url){
+        return url.startsWith("http://") || url.startsWith("https://");
+    }
+
+    public static String nudityDomain(String url){
+        String[] holder = {"https://", "https//"};
+        url = StringUtils.replace(holder, "", url);
+        return url.substring(url.indexOf("/"));
     }
 }

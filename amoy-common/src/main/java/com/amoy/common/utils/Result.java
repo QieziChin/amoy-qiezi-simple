@@ -1,7 +1,6 @@
 package com.amoy.common.utils;
 
 import lombok.Data;
-
 import lombok.EqualsAndHashCode;
 import org.apache.http.HttpStatus;
 

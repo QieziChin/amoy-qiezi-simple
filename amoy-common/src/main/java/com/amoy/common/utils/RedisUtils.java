@@ -1,12 +1,13 @@
 package com.amoy.common.utils;
 
 import jakarta.annotation.Resource;
-import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -73,8 +74,29 @@ public class RedisUtils {
         expire(ttlKey, timeout, unit);
     }
 
+    public Boolean hasKey(String key, String hashKey){
+        return redisTemplate.opsForHash().hasKey(key, hashKey);
+    }
+
+
     public Object hGet(String key, String hashKey){
         return redisTemplate.opsForHash().get(key, hashKey);
+    }
+    /**
+     * 获取hash 表中所有 keys 的集合
+     * @param key
+     * @return
+     */
+    public Set<Object> hKeys(String key) {
+        return redisTemplate.opsForHash().keys(key);
+    }
+    /**
+     * 获取所有 Values
+     * @param key
+     * @return
+     */
+    public List<Object> hVals(String key) {
+        return redisTemplate.opsForHash().values(key);
     }
 
     public Object delete(String key, String hashKey){
@@ -102,11 +124,6 @@ public class RedisUtils {
 
     public void delete(Collection<String> keys) {
         redisTemplate.delete(keys);
-    }
-
-    public Map<String, Object> hGetAll(String key) {
-        HashOperations<String, String, Object> hashOperations = redisTemplate.opsForHash();
-        return hashOperations.entries(key);
     }
 
     public void hMSet(String key, Map<String, Object> map) {
