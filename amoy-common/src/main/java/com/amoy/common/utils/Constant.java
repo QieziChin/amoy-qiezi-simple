@@ -23,6 +23,7 @@ import java.util.stream.Stream;
 public class Constant {
     public static final String TOKEN_USER = "UserToken";
 
+    public static final String PANTIES_THREAD = "translatex99";
 
 
     public static final String agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.95 Safari/537.36";
