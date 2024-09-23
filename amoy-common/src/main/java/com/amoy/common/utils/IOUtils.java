@@ -10,4 +10,25 @@ public class IOUtils {
             }
         }
     }
+
+    /**
+     * 删除文件夹
+     * @param folder
+     */
+    public static void delete(File folder){
+        if (folder.isDirectory()){
+            File[] files = folder.listFiles();
+            if (files!= null){
+                for (File file : files) {
+                    if (file.isDirectory()){
+                        IOUtils.delete(file);
+                    } else {
+                        file.delete();
+                    }
+                }
+            }
+        } else {
+            folder.delete();
+        }
+    }
 }

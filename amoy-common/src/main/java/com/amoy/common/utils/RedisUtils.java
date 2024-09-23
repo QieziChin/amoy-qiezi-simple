@@ -102,14 +102,54 @@ public class RedisUtils {
     public Object delete(String key, String hashKey){
         return redisTemplate.opsForHash().delete(key, hashKey);
     }
- //List类型
-// redisTemplate.opsForList();
+    //List类型
+    //redisTemplate.opsForList();
+    public void lPush(String key, Object value){
+        redisTemplate.opsForList().leftPush(key, value);
+    }
 
-//Set类型
-// redisTemplate.opsForSet();
+    public void rPush(String key, Object value){
+        redisTemplate.opsForList().rightPush(key, value);
+    }
+    /**
+     * 通过范围查找 List
+     * @param key
+     * @param start
+     * @param end
+     * @return
+     */
+    public List<Object> lRange(String key, Long start, Long end){
+        return redisTemplate.opsForList().range(key, start, end);
+    }
 
-//ZSet类型
-// redisTemplate.opsForZSet();
+    public List<Object> getAll(String key){
+        return lRange(key, 0L, -1L);
+    }
+    //zSet类型
+    // redisTemplate.opsForZSet();
+    public void zAdd(String key, Object value, double score){
+        redisTemplate.opsForZSet().add(key, value, score);
+    }
+    public Set<Object> zAll(String key){
+        return zRange(key, 0L, -1L);
+    }
+    public Set<Object> zRange(String key, Long start, Long end){
+        return redisTemplate.opsForZSet().range(key, start, end);
+    }
+
+    public Long remove(String key, Object values){
+        return redisTemplate.opsForZSet().remove(key, values);
+    }
+
+    public Long removeByScore(String key, Double mix, Double max){
+        return redisTemplate.opsForZSet().removeRangeByScore(key, mix, max);
+    }
+
+    public Long removeByRange(String key, Long start, Long end){
+        return redisTemplate.opsForZSet().removeRange(key, start, end);
+    }
+    //Set类型
+    // redisTemplate.opsForSet();
     public void expire(String key) {
         redisTemplate.expire(key, 24, TimeUnit.HOURS);
     }

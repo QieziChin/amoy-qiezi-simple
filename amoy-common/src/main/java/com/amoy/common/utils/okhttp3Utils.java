@@ -20,15 +20,16 @@ public class okhttp3Utils {
     };
 
     public static Request post(String api, Map<String, String> header, JSONObject payload){
-
-        RequestBody data = RequestBody.create(payload.toString(), JSON);
         Request.Builder builder = new Request.Builder().url(api);
         //请求JSON格式
         builder.addHeader("Content-Type", "application/json");
         header.forEach((key, value)->{
             builder.addHeader(key, value);
         });
-        builder.method("POST", data);
+        if (null != payload){
+            RequestBody data = RequestBody.create(payload.toString(), JSON);
+            builder.method("POST", data);
+        }
         return builder.build();
     }
 }
