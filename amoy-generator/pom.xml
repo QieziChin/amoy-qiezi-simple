@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.amoy</groupId>
     <artifactId>amoy-generator</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.3</version>
     <name>amoy-generator</name>
     <description>amoy-generator</description>
 
@@ -32,7 +32,7 @@
         <dependency>
             <groupId>com.amoy.qiezi</groupId>
             <artifactId>amoy-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${qiezi.common.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -123,6 +123,12 @@
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.16</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

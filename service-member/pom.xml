@@ -8,11 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.amoy</groupId>
-    <artifactId>service-admin</artifactId>
+    <artifactId>service-member</artifactId>
     <version>0.0.1</version>
-    <name>service-admin</name>
-    <description>service-admin</description>
-
+    <name>service-member</name>
+    <description>用户前端服务</description>
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,10 +43,6 @@
             <version>${apache.servlet.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-loadbalancer</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -56,7 +51,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.amoy.service.admin.AdminApplication</mainClass>
+                    <mainClass>com.amoy.service.member.MemberApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

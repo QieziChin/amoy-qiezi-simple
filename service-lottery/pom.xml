@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.amoy</groupId>
 	<artifactId>service-lottery</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>service-lottery</name>
 	<description>service-lottery</description>
 
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>com.amoy</groupId>
 			<artifactId>service-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${qiezi.common.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

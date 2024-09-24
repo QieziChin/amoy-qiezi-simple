@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.amoy</groupId>
 	<artifactId>service-simple</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<name>service-simple</name>
 	<description>service-simple</description>
 	<properties>
@@ -20,10 +20,13 @@
 		<dependency>
 			<groupId>com.amoy</groupId>
 			<artifactId>service-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${qiezi.common.version}</version>
 		</dependency>
-	</dependencies>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 	<build>
 		<plugins>
 			<plugin>

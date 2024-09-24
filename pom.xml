@@ -14,17 +14,26 @@
         <module>amoy-common</module>
         <module>amoy-gateway</module>
         <module>service-common</module>
+        <module>service-ai</module>
         <module>service-auth</module>
         <module>service-simple</module>
         <module>service-admin</module>
         <module>service-lottery</module>
+        <module>service-member</module>
+        <module>service-book</module>
+        <module>service-video</module>
+        <module>service-cloudflare</module>
+        <module>service-optdns</module>
         <module>amoy-generator</module>
+        <module>service-offline</module>
     </modules>
     <properties>
         <java.version>17</java.version>
 
         <apache.common.version>2.6</apache.common.version>
         <common.lang3.version>3.12.0</common.lang3.version>
+        <common.pool2.version>2.12.0</common.pool2.version>
+        <common.io.version>2.12.0</common.io.version>
 
 
         <apache.servlet.version>4.0.1</apache.servlet.version>
@@ -32,13 +41,17 @@
 
         <spring-boot.version>3.2.0</spring-boot.version>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
-        <spring-bootstrap.version>4.0.0</spring-bootstrap.version>
+        <!--
+           SpringCloud 2020.* 以上版本禁用了bootstrap，读取bootstrap.yml bootstrap.properties
+           时需要单独引入 spring-cloud-starter-bootstrap
+        -->
         <spring-session.version>3.3.0</spring-session.version>
+        <spring-ai.version>1.0.0-SNAPSHOT</spring-ai.version>
 
         <mysql.version>8.2.0</mysql.version>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
-
-
+        <mybatis-spring.version>3.0.3</mybatis-spring.version>
+        <pagehelper.version>2.1.0</pagehelper.version>
 
         <alibaba-cloud.version>2022.0.0.0</alibaba-cloud.version>
         <alibaba-druid.version>1.2.20</alibaba-druid.version>
@@ -46,19 +59,15 @@
         <fastjson.version>2.0.52</fastjson.version>
         <aliyun-oss.version>3.17.3</aliyun-oss.version>
 
+        <qiezi.common.version>1.0.2</qiezi.common.version>
+        <okhttp3.version>4.12.0</okhttp3.version>
 
         <java-jwt.version>4.4.0</java-jwt.version>
 
-        <jsoup.version>1.15.1</jsoup.version>
-        <lombok.version>1.18.30</lombok.version>
-        <aliyun-oss.version>3.17.3</aliyun-oss.version>
+        <jsoup.version>1.15.3</jsoup.version>
+        <lombok.version>1.18.32</lombok.version>
+        <docker.image.prefix>qiezichin</docker.image.prefix>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -83,6 +92,13 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${aliyun-oss.version}</version>
@@ -98,6 +114,11 @@
                 <version>${spring-session.version}</version>
             </dependency>
             <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${common.io.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${apache.common.version}</version>
@@ -106,6 +127,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${common.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${common.pool2.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.auth0</groupId>
@@ -118,6 +144,17 @@
                 <version>${apache.servlet.version}</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>
@@ -129,5 +166,22 @@
             </plugin>
         </plugins>
     </build>
-
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>

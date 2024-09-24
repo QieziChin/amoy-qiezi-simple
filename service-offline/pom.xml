@@ -8,7 +8,8 @@
         <artifactId>amoy-qiezi-simple</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
+    <version>0.2.6</version>
+    <name>service-offline</name>
     <artifactId>service-offline</artifactId>
 
     <properties>
@@ -21,7 +22,7 @@
         <dependency>
             <groupId>com.amoy.qiezi</groupId>
             <artifactId>amoy-common</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.aliyun.oss</groupId>
@@ -139,33 +140,51 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.2.2</version>
-
-                <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-
-                    <imageTags>0.0.1</imageTags>
-
-                    <baseImage>openjdk:17</baseImage>
-                    <maintainer>qiezi.chin@gmail.com</maintainer>
-                    <workdir>/</workdir>
-                    <entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>
-
-                    <dockerHost>http://174.128.226.162:52375</dockerHost>
-
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <mainClass>com.amoy.qiezi.ApiApplication</mainClass>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--                <version>1.2.2</version>-->
+
+<!--                <configuration>-->
+<!--                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
+
+<!--                    <imageTags>0.2.6</imageTags>-->
+
+<!--                    <baseImage>openjdk:17</baseImage>-->
+<!--                    <maintainer>qiezi.chin@gmail.com</maintainer>-->
+<!--                    <workdir>/</workdir>-->
+<!--                    <entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>-->
+
+<!--                    <dockerHost>http://174.128.226.162:52375</dockerHost>-->
+
+<!--                    <resources>-->
+<!--                        <resource>-->
+<!--                            <targetPath>/</targetPath>-->
+<!--                            <directory>${project.build.directory}</directory>-->
+<!--                            <include>${project.build.finalName}.jar</include>-->
+<!--                        </resource>-->
+<!--                    </resources>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 </project>
